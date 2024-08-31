@@ -10,7 +10,7 @@ import toast from "react-hot-toast";
 
 export default function Contact() {
   const { ref } = useSectionInView("Contact");
-  const formRef = useRef(null); // Create a ref for the form element
+  const formRef =  useRef<HTMLFormElement | null>(null) // Create a ref for the form element
 
 
   return (
@@ -46,7 +46,8 @@ export default function Contact() {
       className="mt-10 flex flex-col dark:text-black"
       onSubmit={async (e) => {
         e.preventDefault(); // Prevent default form submission behavior
-        const formData = new FormData(formRef.current); // Get form data
+        if (!formRef.current) return;
+        const formData = new FormData(formRef.current!); // Get form data
         const { data, error } = await sendEmail(formData); // Simulate sending email
 
         if (error) {
@@ -55,7 +56,7 @@ export default function Contact() {
         }
 
         toast.success("Email sent successfully!");
-
+        
         formRef.current.reset(); // Clear the form fields after success
       }}
     >
