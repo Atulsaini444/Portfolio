@@ -67,6 +67,7 @@ export const projectsData = [
       "Healthify is a Patient management system. Helps to schedule appointments and an seperate admin portal to manage the appointments.",
     tags: ["React", "Next.js", "Typescript", "AppWrite", "Tailwind", "ShadCn"],
     imageUrl: healthify,
+    siteUrl: "https://healthify-app-prod.vercel.app/",
   },
   // {
   //   title: "Top Green",
@@ -81,6 +82,7 @@ export const projectsData = [
       "Book me helps to book hotels around the world. You can make your home a homestay just like airbnb.",
     tags: ["React", "TypeScript", "Next.js", "Tailwind", "Redux", "MongoDb", "Prisma"],
     imageUrl: bookMe,
+    siteUrl: "https://book-me-ruddy.vercel.app/"
   }
 ] as const;
 
