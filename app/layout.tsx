@@ -5,18 +5,9 @@ import ActiveSectionContextProvider from "@/context/active-section-context";
 import ThemeSwitch from "@/components/theme-switch";
 import ThemeContextProvider from "@/context/theme-context";
 import { Toaster } from "react-hot-toast";
+import { calculateExperience } from "@/utils";
 
 const inter = Inter({ subsets: ["latin"] });
-
-export const calculateExperience = (startDate: string) => {
-  const today = new Date();
-  const start = new Date(startDate);
-
-  const diff = today.getTime() - start.getTime();
-  const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
-
-  return years;
-}
 
 export const metadata = {
   title: "Atul's Portfolio",
