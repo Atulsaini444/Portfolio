@@ -9,6 +9,7 @@ import { HiDownload } from "react-icons/hi";
 import { FaGithubSquare } from "react-icons/fa";
 import { useSectionInView } from "@/lib/hooks";
 import { useActiveSectionContext } from "@/context/active-section-context";
+import { calculateExperience } from "@/app/layout";
 
 export default function Intro() {
   const { ref } = useSectionInView("Home", 0.5);
@@ -63,7 +64,7 @@ export default function Intro() {
         animate={{ opacity: 1, y: 0 }}
       >
         <span className="font-bold">Hello, I'm Atul.</span> I build things for {" "}
-        <span className="font-bold">web🌐.</span> I'm a frontend fanatic, always striving for the perfect user experience with solid 3.5+ years of experience.
+        <span className="font-bold">web🌐.</span> I'm a frontend fanatic, always striving for the perfect user experience with solid {calculateExperience("2022-05-16")}+ years of experience.
       </motion.h1>
 
       <motion.div

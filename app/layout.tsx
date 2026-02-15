@@ -8,9 +8,19 @@ import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
 
+export const calculateExperience = (startDate: string) => {
+  const today = new Date();
+  const start = new Date(startDate);
+
+  const diff = today.getTime() - start.getTime();
+  const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+
+  return years;
+}
+
 export const metadata = {
   title: "Atul's Portfolio",
-  description: "Atul is a frontend developer with solid 3.5+ years of experience.",
+  description: `Atul is a frontend developer with solid ${calculateExperience("2022-05-16")}+ years of experience.`,
 };
 
 export default function RootLayout({
