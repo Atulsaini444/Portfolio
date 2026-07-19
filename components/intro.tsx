@@ -3,17 +3,14 @@
 import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
-import Link from "next/link";
-import { BsArrowRight, BsLinkedin } from "react-icons/bs";
+import { BsLinkedin } from "react-icons/bs";
 import { HiDownload } from "react-icons/hi";
 import { FaGithubSquare } from "react-icons/fa";
 import { useSectionInView } from "@/lib/hooks";
-import { useActiveSectionContext } from "@/context/active-section-context";
-import { calculateExperience } from "@/utils";
+import { calculateExperience } from "@/lib/utils";
 
 export default function Intro() {
   const { ref } = useSectionInView("Home", 0.5);
-  const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
 
   return (
     <section
@@ -34,9 +31,9 @@ export default function Intro() {
             <Image
               src="/portfolioImage1.jpg"
               alt="Atul's portrait"
-              width="222"
-              height="222"
-              quality="95"
+              width={222}
+              height={222}
+              quality={95}
               priority={true}
               className="h-24 w-24 rounded-full object-cover border-[0.35rem] border-white shadow-xl"
             />
@@ -63,8 +60,9 @@ export default function Intro() {
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        <span className="font-bold">Hello, I'm Atul.</span> I build things for {" "}
-        <span className="font-bold">web🌐.</span> I'm a frontend fanatic, always striving for the perfect user experience with solid {calculateExperience("2022-05-16")}+ years of experience.
+        <span className="font-bold">Hi, I'm Atul.</span> I build fast,
+        polished products for the{" "}
+        <span className="font-bold">web🌐.</span> {calculateExperience("2022-05-16")}+ years turning tricky frontend problems into shipped code — and increasingly, backend too.
       </motion.h1>
 
       <motion.div
@@ -88,6 +86,8 @@ export default function Intro() {
           className="bg-white p-4 text-gray-700 hover:text-gray-950 flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
           href="https://www.linkedin.com/in/atulsaini649"
           target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn profile"
         >
           <BsLinkedin />
         </a>
@@ -96,6 +96,8 @@ export default function Intro() {
           className="bg-white p-4 text-gray-700 flex items-center gap-2 text-[1.35rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
           href="https://github.com/Atulsaini444"
           target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub profile"
         >
           <FaGithubSquare />
         </a>

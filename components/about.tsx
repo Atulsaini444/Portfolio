@@ -19,22 +19,25 @@ export default function About() {
     >
       <SectionHeading>About me</SectionHeading>
       <p className="mb-3">
-        After graduating with a degree in{" "}
-        <span className="font-medium">Computer Science 💻</span>, I decided to pursue my
-        passion for programming. After learning from online resources, i started as an frontend Engineer.{" "}
-        <span className="italic">My favorite part of programming</span> is the
-        problem-solving aspect. I love❤️ the
-        feeling of finally figuring out a solution to a problem. My core stack
-        is{" "}
-        <span className="font-medium">
-          React and Next.js
-        </span>
-        . I am also familiar with TypeScript and Prisma. I am always looking to
-        learn new technologies🧑‍💻.
+        After a degree in{" "}
+        <span className="font-medium">Computer Science 💻</span>, I taught
+        myself to code and started as a Frontend Engineer — and haven't
+        stopped shipping since. At Recruiterflow, I led the redesign of the
+        platform's most-used screen and pushed past frontend into backend
+        logic. Before that, I built map-heavy interfaces with deck.gl and
+        Google Maps, and shipped a private UI library used across a company's
+        products.{" "}
+        <span className="italic">My favorite part of the job</span> is
+        turning a messy requirement into something people actually enjoy
+        using. My core stack is{" "}
+        <span className="font-medium">React and Next.js</span>, with
+        TypeScript and Prisma close behind — and I'm always picking up the
+        next thing🧑‍💻.
       </p>
 
       <p>
-        <span className="italic">When I'm not coding</span>, I enjoy reading books📚 in my kindle.
+        <span className="italic">When I'm not coding</span>, I'm reading on my
+        Kindle📚.
       </p>
     </motion.section>
   );

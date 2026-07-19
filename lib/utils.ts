@@ -1,3 +1,13 @@
+export const calculateExperience = (startDate: string): number => {
+  const today = new Date();
+  const start = new Date(startDate);
+
+  const diff = today.getTime() - start.getTime();
+  const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+
+  return years;
+};
+
 export const validateString = (
   value: unknown,
   maxLength: number

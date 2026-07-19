@@ -10,8 +10,7 @@ import toast from "react-hot-toast";
 
 export default function Contact() {
   const { ref } = useSectionInView("Contact");
-  const formRef =  useRef<HTMLFormElement | null>(null) // Create a ref for the form element
-
+  const formRef = useRef<HTMLFormElement | null>(null);
 
   return (
     <motion.section
@@ -42,41 +41,40 @@ export default function Contact() {
       </p>
 
       <form
-      ref={formRef} // Attach the ref to the form
-      className="mt-10 flex flex-col dark:text-black"
-      onSubmit={async (e) => {
-        e.preventDefault(); // Prevent default form submission behavior
-        if (!formRef.current) return;
-        const formData = new FormData(formRef.current!); // Get form data
-        const { data, error } = await sendEmail(formData); // Simulate sending email
+        ref={formRef}
+        className="mt-10 flex flex-col dark:text-black"
+        onSubmit={async (e) => {
+          e.preventDefault();
+          if (!formRef.current) return;
+          const formData = new FormData(formRef.current);
+          const { error } = await sendEmail(formData);
 
-        if (error) {
-          toast.error(error);
-          return;
-        }
+          if (error) {
+            toast.error(error);
+            return;
+          }
 
-        toast.success("Email sent successfully!");
-        
-        formRef.current.reset(); // Clear the form fields after success
-      }}
-    >
-      <input
-        className="h-14 px-4 rounded-lg borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
-        name="senderEmail"
-        type="email"
-        required
-        maxLength={500}
-        placeholder="Your email"
-      />
-      <textarea
-        className="h-52 my-3 rounded-lg borderBlack p-4 dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
-        name="message"
-        placeholder="Your message"
-        required
-        maxLength={5000}
-      />
-      <SubmitBtn />
-    </form>
+          toast.success("Email sent successfully!");
+          formRef.current.reset();
+        }}
+      >
+        <input
+          className="h-14 px-4 rounded-lg borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
+          name="senderEmail"
+          type="email"
+          required
+          maxLength={500}
+          placeholder="Your email"
+        />
+        <textarea
+          className="h-52 my-3 rounded-lg borderBlack p-4 dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
+          name="message"
+          placeholder="Your message"
+          required
+          maxLength={5000}
+        />
+        <SubmitBtn />
+      </form>
     </motion.section>
   );
 }
